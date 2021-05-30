@@ -1,0 +1,21 @@
+
+### LOGIN
+POST http://localhost:8080/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "task",
+    "password": "task"
+}
+
+
+
+### CHANGEPASSWORD
+POST http://localhost:8080/changepassword HTTP/1.1
+Content-Type: application/json
+
+{
+    "oldPassword": "task",
+    "newPassword": "password",
+    "newPasswordConfirmation": "password"
+}
