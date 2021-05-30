@@ -29,11 +29,11 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	atClaims := jwt.MapClaims{}
-	atClaims["sub"] = user.ID
-	atClaims["username"] = user.Username
-	atClaims["exp"] = time.Now().Add(time.Minute * 15).Unix()
-	token, err := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims).SignedString([]byte(SECRET))
+	claims := jwt.MapClaims{}
+	claims["sub"] = user.ID
+	claims["username"] = user.Username
+	claims["exp"] = time.Now().Add(time.Minute * 15).Unix()
+	token, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte(SECRET))
 
 	if err != nil {
 		panic("error while generating jwt")
